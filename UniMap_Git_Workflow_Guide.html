@@ -1,21 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UniMap — Ghid Git & GitHub (în 10 pași)</title>
+<title>UniMap — Ghid Complet Git & GitHub</title>
 <style>
   :root {
-    --bg: #0f1221;
-    --panel: #171a2b;
-    --ink: #e9ecff;
-    --muted: #9aa3c7;
-    --accent: #86a7ff;
-    --accent-2: #7df0c5;
-    --border: rgba(255,255,255,0.08);
-    --code-bg: #0b0d19;
-    --tag: rgba(255,255,255,0.08);
+    --bg: #0f1221; --panel: #171a2b; --ink: #e9ecff; --muted: #9aa3c7; --accent: #86a7ff; --accent-2: #7df0c5; --border: rgba(255,255,255,0.08); --code-bg: #0b0d19; --tag: rgba(255,255,255,0.08);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: linear-gradient(180deg, var(--bg), #0b0e1a 60%); color: var(--ink); font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
@@ -34,23 +25,24 @@
   nav a { display: block; padding: 8px 10px; border-radius: 10px; color: var(--ink); border: 1px solid transparent; }
   nav a:hover { background: var(--panel); border-color: var(--border); text-decoration: none; }
   section { border: 1px solid var(--border); background: rgba(255,255,255,0.03); border-radius: 16px; padding: 18px; margin-bottom: 16px; }
-  h2 { margin: 0 0 10px; font-size: 20px; }
+  h2, h3 { margin: 0 0 10px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 16px; color: var(--accent-2); margin-top: 15px; }
   p { margin: 10px 0; }
   .tip, .warn { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); margin: 12px 0; }
   .tip { background: rgba(125, 240, 197, 0.08); }
-  .warn { background: rgba(255, 164, 164, 0.08); }
+  .warn { background: rgba(255, 164, 164, 0.1); border-color: rgba(255, 100, 100, 0.2); }
   pre { position: relative; margin: 12px 0; border-radius: 12px; border: 1px solid var(--border); background: var(--code-bg); padding: 12px 12px 12px 12px; overflow: auto; }
   code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, Monaco, monospace; font-size: 13px; color: #e7eeff; }
   .copy { position: absolute; top: 8px; right: 8px; font-size: 12px; background: var(--panel); border: 1px solid var(--border); color: var(--ink); border-radius: 8px; padding: 4px 8px; cursor: pointer; }
-  .k { color: #a5b4fc; } .c { color: #7ae9be; } .g { color: #8bd5ff; } .y { color: #ffe48b; }
+  .comment { color: #8790b3; font-style: italic; }
   footer { margin-top: 30px; color: var(--muted); text-align: center; }
   .tag { display: inline-block; padding: 4px 8px; border: 1px solid var(--border); border-radius: 999px; background: var(--tag); color: var(--muted); font-size: 12px; margin-right: 6px; }
 </style>
 <script>
 function copyCode(btn) {
-  const pre = btn.parentElement;
-  const text = pre.innerText.replace(/^Copy\n/, "");
-  navigator.clipboard.writeText(text);
+  const codeText = btn.closest('pre').querySelector('code').innerText;
+  navigator.clipboard.writeText(codeText);
   btn.innerText = "Copied!";
   setTimeout(()=>btn.innerText="Copy", 1600);
 }
@@ -60,13 +52,10 @@ function copyCode(btn) {
 <div class="wrap">
   <header>
     <div class="badge">🚀 Ghid practic • Git & GitHub pentru UniMap</div>
-    <h1>UniMap — Ghid Git & GitHub (în 10 pași)</h1>
+    <h1>UniMap — Ghid Complet Git & GitHub</h1>
     <div class="subtitle">De la „zero” la lucru pe branch-uri, PR-uri, protecție pe <code>main</code>, Git LFS și build automat.</div>
     <div>
-      <span class="tag">macOS</span>
-      <span class="tag">Xcode</span>
-      <span class="tag">SSH</span>
-      <span class="tag">GitHub Actions</span>
+      <span class="tag">macOS</span> <span class="tag">Xcode</span> <span class="tag">SSH</span> <span class="tag">GitHub Actions</span>
     </div>
   </header>
 
@@ -75,99 +64,149 @@ function copyCode(btn) {
       <h3>Cuprins</h3>
       <ol>
         <li><a href="#step0">0) Ce ai deja</a></li>
-        <li><a href="#step1">1) Concept — cum lucrăm</a></li>
-        <li><a href="#step2">2) Începe un feature (branch nou)</a></li>
-        <li><a href="#step3">3) Pull Request & merge în main</a></li>
-        <li><a href="#step4">4) Protejează ramura main</a></li>
-        <li><a href="#step5">5) Invită colaboratori</a></li>
-        <li><a href="#step6">6) README & CONTRIBUTING</a></li>
-        <li><a href="#step7">7) Git LFS pentru imagini mari</a></li>
-        <li><a href="#step8">8) Build automat (GitHub Actions)</a></li>
-        <li><a href="#step9">9) Probleme frecvente</a></li>
-        <li><a href="#step10">10) Xcode GUI (alternativ)</a></li>
+        <li><a href="#step1">1) Concept — Fluxul Recomandat (cu Branch-uri)</a></li>
+        <li><a href="#step1-alt">2) Flux Alternativ (Push Direct)</a></li>
+        <li><a href="#step2">3) Pașii de lucru (cu Branch-uri)</a></li>
+        <li><a href="#step3">4) Pull Request & Merge</a></li>
+        <li><a href="#step4">5) Protejează ramura main</a></li>
+        <li><a href="#step5">6) Invită colaboratori</a></li>
+        <li><a href="#step6">7) README & CONTRIBUTING</a></li>
+        <li><a href="#step7">8) Git LFS pentru fișiere mari</a></li>
+        <li><a href="#step8">9) Build automat (CI)</a></li>
+        <li><a href="#step9">10) Probleme frecvente</a></li>
+        <li><a href="#step10">11) Xcode GUI (alternativ)</a></li>
       </ol>
     </nav>
 
     <main>
       <section id="step0">
         <h2>0) Ce ai deja</h2>
-        <p>✅ Repo GitHub: <code>cosmintrica/UniMap</code> &nbsp; • &nbsp; ✅ SSH configurat • ✅ primul <em>push</em> reușit.</p>
-        <div class="tip">De aici folosim doar comenzi simple. Fiecare pas are copy‑button.</div>
+        <p>✅ Repo GitHub: <code>cosmintrica/UniMap</code> &nbsp; • &nbsp; ✅ SSH configurat • ✅ Primul <em>push</em> reușit.</p>
+        <div class="tip">Acest ghid conține toate comenzile de care ai nevoie pentru a lucra la proiect. Urmează pașii și vei fi în regulă!</div>
       </section>
 
       <section id="step1">
-        <h2>1) Concept — cum lucrăm</h2>
+        <h2>1) Concept — Fluxul Recomandat (cu Branch-uri)</h2>
+        <p>Gândește-te la proiect ca la o carte. Nu scrii direct în varianta finală, ci lucrezi pe ciorne.</p>
         <ul>
-          <li><strong>main</strong> = ramura stabilă, mereu funcțională.</li>
-          <li>Pentru orice schimbare: <strong>branch nou</strong> → commit → <strong>Pull Request</strong> → merge în <code>main</code>.</li>
+          <li><code><strong>main</strong></code>: Este varianta oficială, tipărită a cărții. Mereu trebuie să fie stabilă și funcțională. Nimeni nu lucrează direct aici.</li>
+          <li><strong>Feature Branch</strong> (ex: <code>feat/login-ui</code>): Este o ciornă unde adaugi un capitol nou sau corectezi greșeli. Orice modificare se face pe o astfel de "ciornă".</li>
+          <li><strong>Pull Request (PR)</strong>: Este cererea ta de a adăuga "ciorna" la cartea oficială. Aici, alții pot revizui munca ta înainte de a o accepta.</li>
         </ul>
+        <div class="tip">Acest flux este standardul în industrie deoarece este sigur, organizat și esențial pentru colaborare.</div>
+      </section>
+      
+      <section id="step1-alt">
+        <h2>2) Flux Alternativ: Push Direct în <code>main</code> (Proiecte Solo)</h2>
+        <p>Acesta este un flux simplificat în care sari peste pașii de branch și Pull Request. Lucrezi direct pe <code>main</code> și trimiți modificările direct pe server.</p>
+        <h3>Pașii pentru Push Direct:</h3>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code><span class="comment"># 1. Asigură-te că ești pe main și ai cea mai nouă versiune</span>
+git switch main
+git pull
+
+<span class="comment"># --- Aici lucrezi în Xcode ---</span>
+
+<span class="comment"># 2. Pregătește fișierele modificate</span>
+git add -A
+
+<span class="comment"># 3. Salvează modificările cu un commit</span>
+git commit -m "fix: am corectat o eroare de afișare"
+
+<span class="comment"># 4. Trimite commit-ul direct pe server în ramura main</span>
+git push</code></pre>
+
+        <div class="warn">
+            <strong>Atenție! Când să folosești acest flux:</strong>
+            <ul>
+                <li>✅ Doar dacă lucrezi <strong>singur</strong> la proiect.</li>
+                <li>✅ Pentru modificări foarte mici și sigure (ex: corectarea unei greșeli de text).</li>
+            </ul>
+            <strong>De ce este riscant și nerecomandat în echipe:</strong>
+            <ul>
+                <li>❌ <strong>Fără plasă de siguranță:</strong> Orice greșeală (bug) ajunge direct în versiunea oficială și poate strica aplicația.</li>
+                <li>❌ <strong>Fără Code Review:</strong> Nimeni nu îți poate verifica munca înainte de a fi integrată, crescând riscul de erori.</li>
+                <li>❌ <strong>Istoric murdar:</strong> Istoricul ramurei <code>main</code> se umple de commit-uri mici, greu de urmărit.</li>
+            </ul>
+        </div>
       </section>
 
       <section id="step2">
-        <h2>2) Începe un feature (branch nou)</h2>
-        <p>Din folderul proiectului (acolo unde e <code>UniMap.xcodeproj</code>):</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git switch main
+        <h2>3) Pașii de lucru (cu Branch-uri)</h2>
+        <p>Acesta este ciclul pe care îl vei repeta pentru fiecare funcționalitate nouă. Deschide un <strong>Terminal</strong> în folderul proiectului (acolo unde e <code>UniMap.xcodeproj</code>).</p>
+        <h3>Pasul A: Sincronizează și creează branch-ul</h3>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code><span class="comment"># 1. Mergi pe ramura principală (cartea oficială)</span>
+git switch main
+<span class="comment"># 2. Descarcă cele mai noi modificări de pe server</span>
 git pull
-
-# creează și treci pe un branch nou
+<span class="comment"># 3. Creează (-c) o "ciornă" nouă și treci pe ea</span>
 git switch -c feat/onboarding-polish</code></pre>
-        <p>Lucrezi în Xcode. Când vrei să salvezi schimbările:</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git add -A
+        <h3>Pasul B: Lucrează și salvează progresul (Commit)</h3>
+        <p>Acum poți lucra în Xcode. Când ai un set de modificări logice pe care vrei să le salvezi, rulează următoarele comenzi:</p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code><span class="comment"># 1. Pregătește TOATE fișierele modificate (-A) pentru "fotografie"</span>
+git add -A
+<span class="comment"># 2. Fă "fotografia" (commit) și adaugă un mesaj (-m) descriptiv</span>
 git commit -m "polish: onboarding UI + compact reset panel"</code></pre>
-        <p>Trimite branch-ul pe GitHub:</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git push -u origin feat/onboarding-polish</code></pre>
-        <div class="tip">Pe GitHub apare butonul <em>Compare &amp; pull request</em>. Apasă-l pentru a deschide PR-ul.</div>
+        <h3>Pasul C: Trimite munca pe GitHub (Push)</h3>
+        <p>Când ești gata să trimiți "ciorna" pe server pentru a crea un Pull Request:</p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code><span class="comment"># Încarcă branch-ul tău pe serverul GitHub (numit 'origin')</span>
+git push -u origin feat/onboarding-polish</code></pre>
       </section>
 
       <section id="step3">
-        <h2>3) Pull Request &amp; merge în <code>main</code></h2>
+        <h2>4) Pull Request &amp; Merge în <code>main</code></h2>
+        <p>Odată ce ai deschis linkul de Pull Request (PR) pe GitHub:</p>
         <ol>
-          <li>Completezi titlu + descriere în PR.</li>
-          <li>Verifici că trec verificările (dacă ai workflow).</li>
-          <li><strong>Merge</strong> (recomandat: <em>Squash and merge</em>).</li>
-          <li>Ștergi branch‑ul din GitHub (butonul <em>Delete branch</em>).</li>
+          <li>Completezi un titlu și o descriere clară pentru PR (ce face, cum se testează).</li>
+          <li>Verifici dacă trec toate verificările automate (dacă ai configurat GitHub Actions).</li>
+          <li>Apasă butonul verde **"Merge pull request"**. Se recomandă opțiunea **"Squash and merge"**.</li>
+          <li>După merge, apasă butonul **"Delete branch"** pentru a șterge "ciorna" de pe server.</li>
         </ol>
-        <p>Apoi sincronizezi local:</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git switch main
+        <h3>Curățenie locală</h3>
+        <p>Acum că munca ta e în `main`, trebuie să-ți aduci la zi folderul local.</p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code><span class="comment"># 1. Mergi înapoi pe ramura principală</span>
+git switch main
+<span class="comment"># 2. Descarcă noua versiune de `main` care conține și munca ta</span>
 git pull
+<span class="comment"># 3. Șterge (-d) "ciorna" locală, nu mai ai nevoie de ea</span>
 git branch -d feat/onboarding-polish</code></pre>
       </section>
 
       <section id="step4">
-        <h2>4) Protejează ramura <code>main</code></h2>
-        <p>GitHub → Repository → <strong>Settings → Branches</strong> → <strong>Add branch protection rule</strong>:</p>
+        <h2>5) Protejează ramura <code>main</code></h2>
+        <p>Pentru a preveni push-urile directe accidentale în `main`, poți adăuga o regulă de protecție. Este foarte recomandat.</p>
+        <p>Pe GitHub: Repository → <strong>Settings → Branches</strong> → <strong>Add branch protection rule</strong>:</p>
         <ul>
           <li><em>Branch name pattern</em>: <code>main</code></li>
           <li>Bifează: <strong>Require a pull request before merging</strong></li>
-          <li>(Opțional) <strong>Require status checks to pass</strong> — dacă ai workflow de build.</li>
+          <li>(Opțional) Bifează: <strong>Require status checks to pass before merging</strong> — dacă ai workflow de build, acest lucru asigură că doar codul care compilează cu succes poate fi integrat.</li>
         </ul>
       </section>
 
       <section id="step5">
-        <h2>5) Invită colaboratori</h2>
-        <p>Repo → <strong>Settings → Collaborators → Add people</strong> → introdu username‑ul → alege permisiunea.</p>
+        <h2>6) Invită colaboratori</h2>
+        <p>Dacă vrei să lucrezi cu altcineva la proiect:</p>
+        <p>Repo → <strong>Settings → Collaborators → Add people</strong> → introdu username‑ul persoanei → alege permisiunea (de obicei `Write`).</p>
       </section>
 
       <section id="step6">
-        <h2>6) README &amp; CONTRIBUTING</h2>
-        <p>Adaugă fișierele de bază:</p>
+        <h2>7) README & CONTRIBUTING</h2>
+        <p>Fișierele `README.md` și `CONTRIBUTING.md` sunt esențiale pentru a documenta proiectul și regulile de contribuție.</p>
         <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>cat &gt; README.md &lt;&lt; 'EOF'
 # UniMap
 
-Indoor maps pentru universități (Craiova → prima).
+Hărți interioare pentru universități (Craiova → prima).
 **Stack:** SwiftUI, MapKit, JSON pentru hărți, editor intern.
 
 ## Rulare
 1. Deschide `UniMap.xcodeproj`
-2. Schema: UniMap
+2. Alege schema: UniMap
 3. Rulează (⌘R)
 
 ## Structură
-- App/ — entry
-- Features/ — ecrane
-- Shared/ — componente comune
-- Data/Maps — hărți JSON
-
+- App/ — entry point
+- Features/ — ecrane (funcționalități)
+- Shared/ — componente comune (reutilizabile)
+- Data/Maps — hărțile în format JSON
 EOF
 
 cat &gt; CONTRIBUTING.md &lt;&lt; 'EOF'
@@ -185,21 +224,30 @@ git push</code></pre>
       </section>
 
       <section id="step7">
-        <h2>7) Git LFS pentru imagini mari</h2>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>brew install git-lfs        # o singură dată
+        <h2>8) Git LFS pentru fișiere mari</h2>
+        <p>Git nu este eficient la stocarea fișierelor binare mari (imagini, PDF-uri). Git LFS (Large File Storage) rezolvă asta.</p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code># Instalează extensia LFS (o singură dată per computer)
+brew install git-lfs
+
+# Activează LFS pentru proiectul curent (o singură dată per proiect)
 git lfs install
+
+# Spune-i lui Git LFS ce tipuri de fișiere să urmărească
 git lfs track "*.png" "*.jpg" "*.jpeg" "*.pdf"
+
+# Adaugă fișierul de configurare .gitattributes la commit
 git add .gitattributes
 git commit -m "chore: enable Git LFS"
 git push</code></pre>
-        <div class="tip">După asta, poți urca screenshot-uri mari fără probleme.</div>
+        <div class="tip">După acest pas, poți adăuga fișiere mari în proiect, iar Git le va gestiona eficient.</div>
       </section>
 
       <section id="step8">
-        <h2>8) Build automat (GitHub Actions)</h2>
+        <h2>9) Build automat (GitHub Actions)</h2>
+        <p>Poți configura GitHub să compileze automat proiectul la fiecare Pull Request sau push în `main` pentru a te asigura că nu ai introdus erori.</p>
         <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>mkdir -p .github/workflows
 cat &gt; .github/workflows/ios-build.yml &lt;&lt; 'EOF'
-name: iOS Build
+name: iOS Build & Test
 
 on:
   pull_request:
@@ -211,13 +259,21 @@ jobs:
   build:
     runs-on: macos-14
     steps:
-      - uses: actions/checkout@v4
-      - name: Select Xcode
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Select Xcode version
         run: sudo xcode-select -s /Applications/Xcode.app
-      - name: Resolve SPM
+        
+      - name: Resolve Swift Package Manager dependencies
         run: xcodebuild -resolvePackageDependencies -project UniMap.xcodeproj
-      - name: Build (Debug)
-        run: xcodebuild -project UniMap.xcodeproj -scheme UniMap -destination 'platform=iOS Simulator,name=iPhone 15' build | xcpretty
+        
+      - name: Build for iOS Simulator
+        run: |
+          xcodebuild -project UniMap.xcodeproj \
+                     -scheme UniMap \
+                     -destination 'platform=iOS Simulator,name=iPhone 15' \
+                     build | xcpretty
         shell: bash
 EOF
 
@@ -227,47 +283,51 @@ git push</code></pre>
       </section>
 
       <section id="step9">
-        <h2>9) Probleme frecvente</h2>
-        <p><strong>„Updates were rejected…”</strong> (remote are schimbări):</p>
+        <h2>10) Probleme frecvente</h2>
+        <p><strong>„Updates were rejected because the remote contains work that you do not have locally.”</strong></p>
+        <p>Asta înseamnă că altcineva (sau tu, de pe alt computer) a făcut un `push` pe server. Trebuie să descarci întâi acele schimbări.</p>
         <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git pull --rebase
 git push</code></pre>
-        <p><strong>Nu mă lasă să schimb branch-ul (ai modificări necomise)</strong>:</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code># salvezi temporar
+        <p><strong>Nu te lasă să schimbi branch-ul pentru că ai modificări ne-comise.</strong></p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code># Opțiunea 1: Salvezi temporar modificările
 git stash
+# ...schimbi branch-ul, faci ce ai de făcut...
 git switch main
+# ...apoi aplici înapoi modificările salvate
 git stash pop
 
-# sau faci un commit provizoriu
+# Opțiunea 2: Faci un commit provizoriu
 git add -A
-git commit -m "WIP"</code></pre>
-        <p><strong>Remote pe HTTPS (cere user/parolă) — treci pe SSH</strong>:</p>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git remote set-url origin git@github.com:USERNAME/UniMap.git
+git commit -m "WIP" # WIP = Work In Progress</code></pre>
+        <p><strong>Remote-ul este pe HTTPS și cere mereu user/parolă? Treci pe SSH.</strong></p>
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code>git remote set-url origin git@github.com:cosmintrica/UniMap.git
+# Verifică dacă s-a schimbat
 git remote -v</code></pre>
       </section>
 
       <section id="step10">
-        <h2>10) Xcode GUI (alternativ)</h2>
+        <h2>11) Xcode GUI (alternativ)</h2>
+        <p>Dacă preferi o interfață grafică în locul Terminalului, Xcode oferă suport de bază pentru Git.</p>
         <ul>
-          <li><strong>Init/Commit/Push</strong>: Source Control → Commit… → Push…</li>
-          <li><strong>Branch nou</strong>: Source Control → New Branch…</li>
-          <li><strong>Schimbă branch</strong>: Source Control → Switch to Branch…</li>
-          <li><strong>PR</strong>: după push, mergi pe GitHub → Compare &amp; pull request.</li>
+          <li><strong>Commit/Push</strong>: Meniul de sus → Source Control → Commit… → bifează "Push to remote".</li>
+          <li><strong>Pull</strong>: Meniul de sus → Source Control → Pull…</li>
+          <li><strong>Branch nou</strong>: În panoul din stânga (Project Navigator), click dreapta pe folderul proiectului → New Branch…</li>
+          <li><strong>Schimbă branch</strong>: În meniul de sus → Source Control → Switch to Branch…</li>
+          <li><strong>Pull Request</strong>: Pentru asta trebuie să mergi pe site-ul GitHub. După ce faci `Push` la un branch nou, GitHub îți va afișa un buton mare, galben, pentru a crea un PR.</li>
         </ul>
       </section>
 
       <section>
         <h2>Cheat sheet ultra-scurt</h2>
-        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code># adu la zi și pornește un feature
-git switch main &amp;&amp; git pull
+        <pre><button class="copy" onclick="copyCode(this)">Copy</button><code># Fluxul recomandat (cu branch-uri)
+git switch main && git pull
 git switch -c feat/nume
-
-# salvează munca
+# ...lucrezi...
 git add -A
 git commit -m "feat: schimbare"
 git push -u origin feat/nume
-
-# după merge
-git switch main &amp;&amp; git pull
+# ...faci merge pe GitHub...
+git switch main && git pull
 git branch -d feat/nume</code></pre>
       </section>
 
