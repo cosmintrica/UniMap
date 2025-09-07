@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>UniMap folosește locația ta pentru a-ți arăta cea mai apropiată clădire și pentru a-ți oferi direcții precise în campus.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>UniMap folosește locația ta pentru a-ți arăta cea mai apropiată clădire și pentru a-ți oferi direcții precise în campus.</string>
+</dict>
 </plist>

@@ -34,13 +34,19 @@ struct RootView: View {
                     .tabItem { Label("Admin", systemImage: "wrench.and.screwdriver") }
             }
         }
-        .onAppear { showOnboarding = (profile.profile == nil) }
+        .onAppear { 
+            showOnboarding = (profile.profile == nil)
+            // Încarcă datele educaționale când se deschide aplicația
+            Task {
+                await profile.loadEducationalDataIfNeeded()
+            }
+        }
         .onChange(of: profile.profile) { _, newValue in showOnboarding = (newValue == nil) }
         .onChange(of: selectedTab) { _, newValue in
             if newValue == .harta { mapResetTick &+= 1 } // revenire pe Harta → reset zoom
         }
         .fullScreenCover(isPresented: $showOnboarding) {
-            OnboardingView().interactiveDismissDisabled(true)
+            WelcomeView().interactiveDismissDisabled(true)
         }
     }
 }
