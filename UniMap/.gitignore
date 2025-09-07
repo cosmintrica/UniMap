@@ -1,0 +1,23 @@
+# Xcode / Swift
+DerivedData/
+.build/
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+*.swp
+.DS_Store
+
+# SPM
+/.swiftpm/
+
+# CocoaPods (dacă vei folosi)
+Pods/
+
+# Fastlane (dacă vei folosi)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+
+# Git LFS (opțional pentru imagini mari)
+*.psd
+*.zip
