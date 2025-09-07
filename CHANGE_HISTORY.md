@@ -215,6 +215,43 @@
 
 ---
 
-*Last Updated: 2025-09-07 06:00:00*
-*Version: 2.0.0*
-*Status: Major Release - Supabase Migration Complete*
+## 🚨 **CRITICAL ISSUES IDENTIFIED - 2025-09-07 06:15:00**
+
+### **🔴 HIGH PRIORITY BUGS**
+
+#### **1. Location Permission Buttons Not Working**
+- **Issue**: Buttons "Permite accesul la locație" and "Continuă fără locație" in LocationPermissionView are not functional
+- **Impact**: Users cannot proceed past location permission screen
+- **Root Cause**: LocationDelegate weak reference issues and improper CLLocationManager setup
+- **Status**: 🔧 **IN PROGRESS** - Partially fixed, needs testing
+- **Fix Applied**: Simplified LocationDelegate setup, removed ObjectiveC dependency
+
+#### **2. Map Background Visible Behind First Slide**
+- **Issue**: Map content briefly visible before WelcomeView appears
+- **Impact**: Poor user experience, visual glitch
+- **Root Cause**: showOnboarding state initialization timing
+- **Status**: 🔧 **IN PROGRESS** - Fixed showOnboarding initial state
+- **Fix Applied**: Set showOnboarding = true initially
+
+#### **3. Missing Animations on "Informații Actualizate" Slide**
+- **Issue**: Text animations not identical to other slides
+- **Impact**: Inconsistent user experience
+- **Status**: ✅ **FIXED** - Added special animations for notifications slide
+- **Fix Applied**: Enhanced text with scale effects, pulsing animations, and notification emojis
+
+#### **4. Compiler Warnings**
+- **Issue**: Multiple warnings in LoginView, RegistrationView, AccountView
+- **Impact**: Code quality issues
+- **Status**: 🔧 **IN PROGRESS** - Partially resolved
+- **Fix Applied**: Updated error handling, fixed string interpolation
+
+### **📱 Testing Required**
+- **Device**: iPhone 15 Pro with iOS 26
+- **Critical Path**: WelcomeView → LocationPermissionView → RegistrationView
+- **Focus**: Button functionality, navigation flow, animations
+
+---
+
+*Last Updated: 2025-09-07 06:15:00*
+*Version: 2.0.1*
+*Status: Critical Bug Fixes in Progress*

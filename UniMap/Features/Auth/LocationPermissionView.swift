@@ -1,12 +1,12 @@
 import SwiftUI
 import CoreLocation
-import ObjectiveC
 
 struct LocationPermissionView: View {
     @Binding var showRegistration: Bool
     @State private var locationManager = CLLocationManager()
     @State private var showingAlert = false
     @State private var alertMessage = ""
+    @State private var locationDelegate: LocationDelegate?
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,10 +48,8 @@ struct LocationPermissionView: View {
             }
         }
         .onAppear {
-            let delegate = LocationDelegate(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
-            locationManager.delegate = delegate
-            // Keep a strong reference to prevent deallocation
-            objc_setAssociatedObject(locationManager, "delegate", delegate, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            locationDelegate = LocationDelegate(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
+            locationManager.delegate = locationDelegate
         }
         .alert("Eroare", isPresented: $showingAlert) {
             Button("OK") { }

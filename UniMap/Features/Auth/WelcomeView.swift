@@ -23,7 +23,7 @@ struct WelcomeView: View {
         WelcomePage(
             title: "Informații Actualizate",
             subtitle: "Rămâi mereu la curent",
-            description: "Primește notificări despre evenimente, modificări de orar și știri importante.",
+            description: "🔔 Primește notificări despre evenimente, modificări de orar și știri importante.\n\n📱 Alerte în timp real pentru toate activitățile din campus.",
             imageName: "bell",
             color: Color.orange
         ),
@@ -205,6 +205,9 @@ struct WelcomeCardView: View {
                             .offset(y: isVisible ? 0 : 20)
                             .opacity(isVisible ? 1.0 : 0.0)
                             .animation(.easeOut(duration: 0.6).delay(0.8), value: isVisible)
+                            // Special animation for "Informații Actualizate" subtitle
+                            .scaleEffect(page.title.contains("Informații") && isVisible ? 1.02 : 1.0)
+                            .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.9), value: isVisible)
                     }
                     
                     Text(page.description)
@@ -221,6 +224,9 @@ struct WelcomeCardView: View {
                         // Special animation for "Informații Actualizate" description
                         .offset(x: page.title.contains("Informații") && isVisible ? 5 : 0)
                         .animation(.easeInOut(duration: 0.8).delay(1.2), value: isVisible)
+                        // Additional pulsing effect for notifications
+                        .scaleEffect(page.title.contains("Informații") && isVisible ? 1.01 : 1.0)
+                        .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true).delay(1.5), value: isVisible)
                 }
                 .padding(.top, 40)
                 .frame(maxWidth: .infinity)

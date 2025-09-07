@@ -12,7 +12,7 @@ struct RootView: View {
     @EnvironmentObject private var profile: ProfileStore
     @State private var selectedTab: BottomSection = .harta
     @State private var selectedInstitution: Institution = .ucv
-    @State private var showOnboarding = false
+    @State private var showOnboarding = true
     @State private var mapResetTick = 0
 
     var body: some View {
@@ -35,7 +35,6 @@ struct RootView: View {
             }
         }
         .onAppear { 
-            showOnboarding = (profile.profile == nil)
             // Încarcă datele educaționale când se deschide aplicația
             Task {
                 await profile.loadEducationalDataIfNeeded()
