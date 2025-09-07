@@ -13,6 +13,7 @@ struct CampusOverviewView: View {
     var onEnterBuilding: () -> Void
 
     @StateObject private var loc = LocationManager()
+    @State private var hasRequestedLocation = false
 
     // UCV coordonate aprox
     private let ucv = CLLocationCoordinate2D(latitude: 44.31853, longitude: 23.80095)
@@ -58,7 +59,10 @@ struct CampusOverviewView: View {
                 }
             }
             .ignoresSafeArea(edges: .bottom)
-            .onAppear { loc.request() }
+            .onAppear { 
+                // Nu cere locația automat - doar când utilizatorul apasă butonul
+                // loc.request() - ELIMINAT pentru a preveni cererea automată
+            }
 
             // butoane utile peste hartă
             VStack {
@@ -76,10 +80,18 @@ struct CampusOverviewView: View {
                                 position = .region(MKCoordinateRegion(center: c,
                                          span: MKCoordinateSpan(latitudeDelta: 0.008, longitudeDelta: 0.008)))
                             } else {
-                                loc.request()
+                                // Cere locația doar când utilizatorul apasă butonul
+                                if !hasRequestedLocation {
+                                    hasRequestedLocation = true
+                                    loc.request()
+                                }
                             }
-                        } label: { Image(systemName: "location.circle") }
+                        } label: { 
+                            Image(systemName: loc.location != nil ? "location.circle.fill" : "location.circle")
+                                .foregroundColor(loc.location != nil ? .green : .blue)
+                        }
                         .buttonStyle(.bordered)
+                        .disabled(loc.authorization == .denied || loc.authorization == .restricted)
                     }
                     .padding(10)
                 }

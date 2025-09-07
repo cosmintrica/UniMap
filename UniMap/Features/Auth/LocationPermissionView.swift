@@ -6,7 +6,10 @@ struct LocationPermissionView: View {
     @State private var locationManager = CLLocationManager()
     @State private var showingAlert = false
     @State private var alertMessage = ""
-    @State private var locationDelegate: LocationDelegate?
+    @StateObject private var locationDelegate = LocationDelegate()
+    @State private var isVisible = false
+    @State private var showRegistrationDirectly = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,13 +51,23 @@ struct LocationPermissionView: View {
             }
         }
         .onAppear {
-            locationDelegate = LocationDelegate(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
+            locationDelegate.setup(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
             locationManager.delegate = locationDelegate
+            
+            // Start animations
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation {
+                    isVisible = true
+                }
+            }
         }
         .alert("Eroare", isPresented: $showingAlert) {
             Button("OK") { }
         } message: {
             Text(alertMessage)
+        }
+        .fullScreenCover(isPresented: $showRegistrationDirectly) {
+            RegistrationView()
         }
     }
     
@@ -65,26 +78,31 @@ struct LocationPermissionView: View {
             RoundedRectangle(cornerRadius: 24)
                 .fill(Color.accentColor.opacity(0.08))
                 .frame(width: 100, height: 100)
-                .scaleEffect(1.0)
-                .animation(.spring(response: 0.6, dampingFraction: 0.7), value: true)
+                .scaleEffect(isVisible ? 1.0 : 0.8)
+                .opacity(isVisible ? 1.0 : 0.0)
+                .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.1), value: isVisible)
             
             Image(systemName: "location")
                 .font(.system(size: 40, weight: .medium))
                 .foregroundColor(.accentColor)
-                .scaleEffect(1.0)
-                .animation(.spring(response: 0.5, dampingFraction: 0.6), value: true)
+                .scaleEffect(isVisible ? 1.0 : 0.5)
+                .opacity(isVisible ? 1.0 : 0.0)
+                .animation(.spring(response: 0.5, dampingFraction: 0.6).delay(0.3), value: isVisible)
         }
     }
     
     private func contentView(geometry: GeometryProxy) -> some View {
         VStack(spacing: 20) {
             VStack(spacing: 8) {
-                Text("Permisiune pentru Locație")
+                Text("Locație")
                     .font(.system(size: min(geometry.size.width * 0.08, 32), weight: .bold, design: .default))
                     .multilineTextAlignment(.center)
                     .foregroundColor(.primary)
                     .lineLimit(2)
                     .minimumScaleFactor(0.8)
+                    .offset(y: isVisible ? 0 : 20)
+                    .opacity(isVisible ? 1.0 : 0.0)
+                    .animation(.easeOut(duration: 0.6).delay(0.2), value: isVisible)
                 
                 Text("Pentru o experiență optimă")
                     .font(.system(size: min(geometry.size.width * 0.05, 20), weight: .medium, design: .default))
@@ -92,6 +110,9 @@ struct LocationPermissionView: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                     .minimumScaleFactor(0.8)
+                    .offset(y: isVisible ? 0 : 20)
+                    .opacity(isVisible ? 1.0 : 0.0)
+                    .animation(.easeOut(duration: 0.6).delay(0.4), value: isVisible)
             }
             
             Text("UniMap folosește locația ta pentru a-ți arăta cea mai apropiată clădire și pentru a-ți oferi direcții precise în campus.")
@@ -102,6 +123,9 @@ struct LocationPermissionView: View {
                 .padding(.horizontal, max(geometry.size.width * 0.1, 20))
                 .lineLimit(nil)
                 .minimumScaleFactor(0.7)
+                .offset(y: isVisible ? 0 : 20)
+                .opacity(isVisible ? 1.0 : 0.0)
+                .animation(.easeOut(duration: 0.6).delay(0.6), value: isVisible)
         }
         .padding(.top, 40)
     }
@@ -123,17 +147,19 @@ struct LocationPermissionView: View {
                 )
             )
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .scaleEffect(1.0)
-            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: true)
+            .scaleEffect(isVisible ? 1.0 : 0.8)
+            .opacity(isVisible ? 1.0 : 0.0)
+            .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.8), value: isVisible)
             
             Button("Continuă fără locație") {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    showRegistration = true
-                }
+                continueWithoutLocation()
             }
             .font(.system(size: 16, weight: .medium))
             .foregroundColor(.secondary)
             .frame(height: 44)
+            .scaleEffect(isVisible ? 1.0 : 0.8)
+            .opacity(isVisible ? 1.0 : 0.0)
+            .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(1.0), value: isVisible)
         }
     }
     
@@ -145,40 +171,57 @@ struct LocationPermissionView: View {
             alertMessage = "Pentru a folosi funcționalitatea de locație, te rugăm să activezi permisiunea în Setări."
             showingAlert = true
         case .authorizedWhenInUse, .authorizedAlways:
-            withAnimation(.easeInOut(duration: 0.3)) {
-                showRegistration = true
+            // Navighează direct la înregistrare
+            print("Location authorized, navigating to registration...")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                showRegistrationDirectly = true
             }
         @unknown default:
             break
         }
     }
+    
+    private func continueWithoutLocation() {
+        showRegistrationDirectly = true
+    }
 }
 
+// MARK: - LocationDelegate
 class LocationDelegate: NSObject, CLLocationManagerDelegate, ObservableObject {
-    @Binding var showRegistration: Bool
-    @Binding var showingAlert: Bool
-    @Binding var alertMessage: String
+    @Published var showRegistration = false
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
     
-    init(showRegistration: Binding<Bool>, showingAlert: Binding<Bool>, alertMessage: Binding<String>) {
-        self._showRegistration = showRegistration
-        self._showingAlert = showingAlert
-        self._alertMessage = alertMessage
+    private var showRegistrationBinding: Binding<Bool>?
+    private var showingAlertBinding: Binding<Bool>?
+    private var alertMessageBinding: Binding<String>?
+    
+    func setup(showRegistration: Binding<Bool>, showingAlert: Binding<Bool>, alertMessage: Binding<String>) {
+        self.showRegistrationBinding = showRegistration
+        self.showingAlertBinding = showingAlert
+        self.alertMessageBinding = alertMessage
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("Location authorization changed to: \(status.rawValue)")
         switch status {
         case .authorizedWhenInUse, .authorizedAlways:
-            withAnimation(.easeInOut(duration: 0.3)) {
-                showRegistration = true
+            print("Location authorized, navigating to registration...")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                // Setează flag-ul pentru a declanșa navigarea directă
+                self.showRegistrationBinding?.wrappedValue = true
             }
         case .denied, .restricted:
             alertMessage = "Permisiunea pentru locație a fost refuzată. Poți continua fără această funcționalitate."
             showingAlert = true
+            alertMessageBinding?.wrappedValue = alertMessage
+            showingAlertBinding?.wrappedValue = true
         default:
             break
         }
     }
 }
+
 
 #Preview {
     LocationPermissionView(showRegistration: .constant(false))

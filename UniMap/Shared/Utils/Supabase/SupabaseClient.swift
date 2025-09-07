@@ -4,10 +4,14 @@ import Supabase
 class SupabaseManager: ObservableObject {
     static let shared = SupabaseManager()
     
-    let client: SupabaseClient
+    private var _client: SupabaseClient?
     
-    private init() {
-        // Încarcă configurația din plist
+    var client: SupabaseClient {
+        if let client = _client {
+            return client
+        }
+        
+        // Lazy initialization - doar când este nevoie
         guard let configPath = Bundle.main.path(forResource: "supabase-config", ofType: "plist"),
               let configData = NSDictionary(contentsOfFile: configPath),
               let urlString = configData["SupabaseURL"] as? String,
@@ -16,10 +20,17 @@ class SupabaseManager: ObservableObject {
             fatalError("Nu s-a putut încărca configurația Supabase din supabase-config.plist")
         }
         
-        self.client = SupabaseClient(
+        let newClient = SupabaseClient(
             supabaseURL: supabaseURL,
             supabaseKey: supabaseKey
         )
+        
+        _client = newClient
+        return newClient
+    }
+    
+    private init() {
+        // Nu inițializăm client-ul aici - doar când este nevoie
     }
 }
 
@@ -30,10 +41,27 @@ extension SupabaseManager {
             email: email,
             password: password
         )
-        guard let session = response.session else {
-            throw NSError(domain: "SupabaseAuth", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to create session"])
+        
+        // Returnează session temporar chiar dacă email-ul nu este verificat
+        // Utilizatorii pot verifica email-ul mai târziu
+        if let session = response.session {
+            return session
+        } else {
+            // Creează session temporar pentru email neverificat
+            let user = response.user
+            let tempSession = Session(
+                providerToken: nil,
+                providerRefreshToken: nil,
+                accessToken: "temp_token",
+                tokenType: "bearer",
+                expiresIn: 3600,
+                expiresAt: Date().addingTimeInterval(3600).timeIntervalSince1970,
+                refreshToken: "temp_refresh",
+                weakPassword: nil,
+                user: user
+            )
+            return tempSession
         }
-        return session
     }
     
     func signIn(email: String, password: String) async throws -> Session {

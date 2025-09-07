@@ -1,40 +1,64 @@
 import SwiftUI
+import UserNotifications
 
 struct WelcomeView: View {
     @State private var currentPage = 0
     @State private var showLocationPermission = false
     @State private var showRegistration = false
     
-    private let pages = [
-        WelcomePage(
-            title: "Bun venit la UniMap",
-            subtitle: "Navighează prin campus cu încredere",
-            description: "Descoperă toate facilitățile universității tale cu hărți interactive și informații în timp real.",
-            imageName: "map",
-            color: Color.accentColor
-        ),
-        WelcomePage(
-            title: "Hărți Detaliate",
-            subtitle: "Explorează fiecare spațiu",
-            description: "Găsește rapid sălile, laboratoarele și toate punctele de interes din campus.",
-            imageName: "building.2",
-            color: Color.green
-        ),
-        WelcomePage(
-            title: "Informații Actualizate",
-            subtitle: "Rămâi mereu la curent",
-            description: "🔔 Primește notificări despre evenimente, modificări de orar și știri importante.\n\n📱 Alerte în timp real pentru toate activitățile din campus.",
-            imageName: "bell",
-            color: Color.orange
-        ),
-        WelcomePage(
-            title: "Experiență Personalizată",
-            subtitle: "Configurează-ți profilul",
-            description: "Creează-ți contul pentru o experiență adaptată nevoilor tale specifice.",
-            imageName: "person.circle",
-            color: Color.purple
-        )
-    ]
+    // MARK: - Notification Permission
+    private func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if let error = error {
+                print("Notification permission error: \(error.localizedDescription)")
+            } else {
+                print("Notification permission granted: \(granted)")
+                // Avansează automat la slide-ul următor după 1.5 secunde
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    if currentPage < pages.count - 1 {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                            currentPage += 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Lazy loading pentru pages - se creează doar când este nevoie
+    private var pages: [WelcomePage] {
+        [
+            WelcomePage(
+                title: "Bun venit la UniMap",
+                subtitle: "Navighează prin campus cu încredere",
+                description: "Descoperă toate facilitățile universității tale cu hărți interactive și informații în timp real.",
+                imageName: "map",
+                color: Color.accentColor
+            ),
+            WelcomePage(
+                title: "Hărți Detaliate",
+                subtitle: "Explorează fiecare spațiu",
+                description: "Găsește rapid sălile, laboratoarele și toate punctele de interes din campus.",
+                imageName: "building.2",
+                color: Color.green
+            ),
+            WelcomePage(
+                title: "Notificări",
+                subtitle: "Rămâi mereu la curent",
+                description: "🔔 Primește notificări despre evenimente, modificări de orar și știri importante.\n\n📱 Alerte în timp real pentru toate activitățile din campus.",
+                imageName: "bell",
+                color: Color.orange,
+                showNotificationButton: true
+            ),
+            WelcomePage(
+                title: "Experiență Personalizată",
+                subtitle: "Configurează-ți profilul",
+                description: "Creează-ți contul pentru o experiență adaptată nevoilor tale specifice.",
+                imageName: "person.circle",
+                color: Color.purple
+            )
+        ]
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,8 +72,12 @@ struct WelcomeView: View {
                     // Content
                     TabView(selection: $currentPage) {
                         ForEach(0..<pages.count, id: \.self) { index in
-                            WelcomeCardView(page: pages[index])
-                                .tag(index)
+                            WelcomeCardView(
+                                page: pages[index], 
+                                requestNotificationPermission: requestNotificationPermission,
+                                isActive: index == currentPage
+                            )
+                            .tag(index)
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
@@ -136,9 +164,6 @@ struct WelcomeView: View {
         .fullScreenCover(isPresented: $showLocationPermission) {
             LocationPermissionView(showRegistration: $showRegistration)
         }
-        .fullScreenCover(isPresented: $showRegistration) {
-            RegistrationView()
-        }
     }
 }
 
@@ -148,11 +173,24 @@ struct WelcomePage {
     let description: String
     let imageName: String
     let color: Color
+    let showNotificationButton: Bool
+    
+    init(title: String, subtitle: String, description: String, imageName: String, color: Color, showNotificationButton: Bool = false) {
+        self.title = title
+        self.subtitle = subtitle
+        self.description = description
+        self.imageName = imageName
+        self.color = color
+        self.showNotificationButton = showNotificationButton
+    }
 }
 
 struct WelcomeCardView: View {
     let page: WelcomePage
+    let requestNotificationPermission: () -> Void
+    let isActive: Bool // Adăugat pentru a ști dacă slide-ul este activ
     @State private var isVisible = false
+    @State private var animationTrigger = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -175,7 +213,7 @@ struct WelcomeCardView: View {
                         .opacity(isVisible ? 1.0 : 0.0)
                         .animation(.spring(response: 0.5, dampingFraction: 0.6).delay(0.4), value: isVisible)
                         // Special animation for bell icon (informații actualizate)
-                        .rotationEffect(.degrees(page.imageName == "bell" && isVisible ? 360 : 0))
+                        .rotationEffect(.degrees(page.showNotificationButton && isVisible ? 360 : 0))
                         .animation(.easeInOut(duration: 1.0).delay(0.6), value: isVisible)
                 }
                 
@@ -193,7 +231,7 @@ struct WelcomeCardView: View {
                             .animation(.easeOut(duration: 0.6).delay(0.6), value: isVisible)
                             .accessibilityAddTraits(.isHeader)
                             // Special animation for "Informații Actualizate" title
-                            .scaleEffect(page.title.contains("Informații") && isVisible ? 1.05 : 1.0)
+                            .scaleEffect(page.showNotificationButton && isVisible ? 1.05 : 1.0)
                             .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.8), value: isVisible)
                         
                         Text(page.subtitle)
@@ -206,7 +244,7 @@ struct WelcomeCardView: View {
                             .opacity(isVisible ? 1.0 : 0.0)
                             .animation(.easeOut(duration: 0.6).delay(0.8), value: isVisible)
                             // Special animation for "Informații Actualizate" subtitle
-                            .scaleEffect(page.title.contains("Informații") && isVisible ? 1.02 : 1.0)
+                            .scaleEffect(page.showNotificationButton && isVisible ? 1.02 : 1.0)
                             .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.9), value: isVisible)
                     }
                     
@@ -222,11 +260,41 @@ struct WelcomeCardView: View {
                         .opacity(isVisible ? 1.0 : 0.0)
                         .animation(.easeOut(duration: 0.6).delay(1.0), value: isVisible)
                         // Special animation for "Informații Actualizate" description
-                        .offset(x: page.title.contains("Informații") && isVisible ? 5 : 0)
+                        .offset(x: page.showNotificationButton && isVisible ? 5 : 0)
                         .animation(.easeInOut(duration: 0.8).delay(1.2), value: isVisible)
                         // Additional pulsing effect for notifications
-                        .scaleEffect(page.title.contains("Informații") && isVisible ? 1.01 : 1.0)
+                        .scaleEffect(page.showNotificationButton && isVisible ? 1.01 : 1.0)
                         .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true).delay(1.5), value: isVisible)
+                    
+                    // Notification permission button (only for "Informații Actualizate" slide)
+                    if page.showNotificationButton {
+                        Button(action: {
+                            requestNotificationPermission()
+                        }) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "bell.fill")
+                                    .font(.system(size: 16, weight: .medium))
+                                Text("Activează Notificările")
+                                    .font(.system(size: 16, weight: .semibold))
+                            }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 12)
+                            .background(
+                                LinearGradient(
+                                    colors: [Color.orange, Color.orange.opacity(0.8)],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .scaleEffect(isVisible ? 1.0 : 0.8)
+                            .opacity(isVisible ? 1.0 : 0.0)
+                            .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(1.8), value: isVisible)
+                        }
+                        .accessibilityLabel("Activează notificările pentru a primi alerte despre evenimente și știri")
+                        .padding(.top, 20)
+                    }
                 }
                 .padding(.top, 40)
                 .frame(maxWidth: .infinity)
@@ -238,6 +306,26 @@ struct WelcomeCardView: View {
             .padding(.horizontal, 32)
         }
         .onAppear {
+            // Animațiile se declanșează doar când slide-ul este activ
+            if isActive {
+                startAnimations()
+            }
+        }
+        .onChange(of: isActive) { _, newValue in
+            if newValue {
+                // Când slide-ul devine activ, declanșează animațiile
+                startAnimations()
+            } else {
+                // Când slide-ul nu mai este activ, resetează animațiile
+                isVisible = false
+            }
+        }
+        .id(page.title) // Force view recreation when page changes
+    }
+    
+    private func startAnimations() {
+        isVisible = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             withAnimation {
                 isVisible = true
             }

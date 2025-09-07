@@ -6,5 +6,7 @@
 	<string>UniMap folosește locația ta pentru a-ți arăta cea mai apropiată clădire și pentru a-ți oferi direcții precise în campus.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>UniMap folosește locația ta pentru a-ți arăta cea mai apropiată clădire și pentru a-ți oferi direcții precise în campus.</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>UniMap îți trimite notificări despre evenimente importante, modificări de orar și știri din campus pentru a rămâne mereu la curent.</string>
 </dict>
 </plist>

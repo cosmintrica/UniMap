@@ -1,0 +1,488 @@
+{
+  "" : {
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMap-master.dia",
+    "emit-module-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMap-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMap-master-emit-module.dia",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMap-master.swiftdeps"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/App/UniMapApp.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UniMapApp~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Data/Catalog.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Catalog~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Admin/AdminView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AdminView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Admin/MapEditorView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapEditorView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Announcements/AnnouncementsView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AnnouncementsView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/AccountView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AccountView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/LocationPermissionView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationPermissionView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/LoginView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LoginView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/OnboardingView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/OnboardingView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/ProfileStore.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/ProfileStore~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/RegistrationView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RegistrationView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Auth/WelcomeView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/WelcomeView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Components/FloorPicker.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorPicker~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Data/UCVBuilding.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UCVBuilding~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/MapScreen.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapScreen~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Models/Building.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Building~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Models/Graph.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Graph~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Models/MapModels.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapModels~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/RootView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RootView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Utils/NodeKind+Helpers.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodeKind+Helpers~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/ViewModels/IndoorMapViewModel.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapViewModel~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/CampusOverviewView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CampusOverviewView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Controls/FloorOverlay.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/FloorOverlay~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Controls/LegendBadge.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LegendBadge~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/IndoorMapView.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/IndoorMapView~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/CorridorsLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/CorridorsLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/GraphEdgesLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GraphEdgesLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/MarkersLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MarkersLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/NodesLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/NodesLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/RoomsLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RoomsLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/RouteLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/RouteLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Features/Map/Views/Indoor/Layers/StairsLayer.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StairsLayer~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Components/HeaderBar.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/HeaderBar~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Types/AppTypes.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/AppTypes~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Geometry/Geometry.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Geometry~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Location/LocationManager.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/LocationManager~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Persistence/Persistence.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Persistence~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/Announcement.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Announcement~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/Faculty.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Faculty~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/MapFile.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/MapFile~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/Master.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Master~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/Specialization.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/Specialization~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/University.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/University~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/User.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/User~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/Models/UserProfile.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/UserProfile~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/StorageService.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/StorageService~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/UniMap/Shared/Utils/Supabase/SupabaseClient.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/SupabaseClient~partial.swiftmodule"
+  },
+  "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/cosmintrica/Important/Proiecte/UniMap/build/UniMap.build/Debug-iphonesimulator/UniMap.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

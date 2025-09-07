@@ -109,9 +109,15 @@ struct ProfileUpdate: Codable {
 final class ProfileStore: ObservableObject {
     static let shared = ProfileStore()
     private init() { 
-        self.profile = Self.load()
+        // Lazy loading - nu face nimic la startup pentru performanță maximă
+        self.profile = nil
         self.supabase = SupabaseManager.shared
-        // Nu încărca datele educaționale în init() pentru a evita probleme de runtime
+        self.isAuthenticated = false
+        
+        // Încarcă profilul în background după un delay scurt
+        Task.detached {
+            await self.loadProfileInBackground()
+        }
     }
 
     @Published var profile: CompleteUserProfile?
@@ -124,6 +130,10 @@ final class ProfileStore: ObservableObject {
     @Published var faculties: [Faculty] = []
     @Published var specializations: [Specialization] = []
     @Published var masters: [Master] = []
+    
+    // Progress tracking pentru loading
+    @Published var loadingProgress: Double = 0.0
+    @Published var loadingStatus: String = ""
     
     private let supabase: SupabaseManager
 
@@ -291,19 +301,93 @@ final class ProfileStore: ObservableObject {
         }
     }
 
+    // MARK: - Background Loading
+    private func loadProfileInBackground() async {
+        // Delay scurt pentru a permite UI-ului să se încarce instant
+        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 secunde
+        
+        // Încarcă profilul din cache
+        let cachedProfile = Self.load()
+        
+        await MainActor.run {
+            self.profile = cachedProfile
+            self.isAuthenticated = cachedProfile != nil
+        }
+        
+        // Verifică statusul de autentificare cu Supabase
+        if let user = supabase.getCurrentUser() {
+            await MainActor.run {
+                self.isAuthenticated = true
+                if self.profile == nil {
+                    self.profile = CompleteUserProfile(
+                        id: user.id.uuidString,
+                        email: user.email ?? "",
+                        fullName: nil,
+                        avatarUrl: nil,
+                        university: nil,
+                        faculty: nil,
+                        specialization: nil,
+                        master: nil,
+                        studyYear: nil,
+                        phone: nil,
+                        birthDate: nil,
+                        bio: nil,
+                        preferredLanguage: "ro",
+                        notificationsEnabled: true
+                    )
+                }
+            }
+        }
+    }
+    
     // MARK: - Data Loading
     func loadEducationalDataIfNeeded() async {
         // Încarcă doar dacă nu sunt deja încărcate
-        if universities.isEmpty {
-            await loadEducationalData()
+        guard universities.isEmpty else { return }
+        
+        // Încarcă în background fără să blocheze UI-ul
+        Task.detached {
+            await self.loadEducationalData()
         }
     }
     
     func loadEducationalData() async {
-        await loadUniversities()
-        await loadFaculties()
-        await loadSpecializations()
-        await loadMasters()
+        await MainActor.run {
+            loadingProgress = 0.0
+            loadingStatus = "Se încarcă datele educaționale..."
+        }
+        
+        // Încarcă toate datele în paralel pentru performanță mai bună
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask { 
+                await self.loadUniversities()
+                await MainActor.run {
+                    self.loadingProgress = 0.25
+                    self.loadingStatus = "Universități încărcate..."
+                }
+            }
+            group.addTask { 
+                await self.loadFaculties()
+                await MainActor.run {
+                    self.loadingProgress = 0.5
+                    self.loadingStatus = "Facultăți încărcate..."
+                }
+            }
+            group.addTask { 
+                await self.loadSpecializations()
+                await MainActor.run {
+                    self.loadingProgress = 0.75
+                    self.loadingStatus = "Specializări încărcate..."
+                }
+            }
+            group.addTask { 
+                await self.loadMasters()
+                await MainActor.run {
+                    self.loadingProgress = 1.0
+                    self.loadingStatus = "Datele au fost încărcate cu succes!"
+                }
+            }
+        }
     }
     
     private func loadUniversities() async {
