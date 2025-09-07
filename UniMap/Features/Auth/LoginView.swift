@@ -131,8 +131,10 @@ struct LoginView: View {
         
         Task {
             do {
-                await profileStore.signIn(email: email, password: password)
-                dismiss()
+                try await profileStore.signIn(email: email, password: password)
+                await MainActor.run {
+                    dismiss()
+                }
             } catch {
                 await MainActor.run {
                     errorMessage = error.localizedDescription

@@ -17,7 +17,7 @@ struct AccountView: View {
         VStack(spacing: 12) {
             if let p = profile.profile {
                 Text(p.displayName).font(.title3.bold())
-                Text("\(p.university) – \(p.faculty)")
+                Text("\(p.university?.name ?? "N/A") – \(p.faculty?.name ?? "N/A")")
                     .foregroundStyle(.secondary)
                 Button("Editează profil") { showEdit = true }.buttonStyle(.bordered)
             } else {

@@ -152,113 +152,97 @@ final class ProfileStore: ObservableObject {
     }
 
     // MARK: - Authentication
-    func signUp(email: String, password: String, profile: CompleteUserProfile) async {
+    func signUp(email: String, password: String, profile: CompleteUserProfile) async throws {
         isLoading = true
         errorMessage = nil
         
-        do {
-            let session = try await supabase.signUp(email: email, password: password)
-            let user = session.user
-            
-            // Creează profilul în baza de date
-            let userProfile = DatabaseUserProfile(
-                id: user.id,
+        let session = try await supabase.signUp(email: email, password: password)
+        let user = session.user
+        
+        // Creează profilul în baza de date
+        let userProfile = DatabaseUserProfile(
+            id: user.id,
+            email: user.email ?? email,
+            fullName: profile.fullName,
+            avatarUrl: profile.avatarUrl,
+            universityId: profile.university?.id,
+            facultyId: profile.faculty?.id,
+            specializationId: profile.specialization?.id,
+            masterId: profile.master?.id,
+            studyYear: profile.studyYear?.intValue,
+            phone: profile.phone,
+            birthDate: profile.birthDate,
+            bio: profile.bio,
+            preferredLanguage: profile.preferredLanguage,
+            notificationsEnabled: profile.notificationsEnabled,
+            isActive: true,
+            lastLogin: Date(),
+            createdAt: Date(),
+            updatedAt: Date()
+        )
+        
+        // Inserează profilul în baza de date
+        try await supabase.client
+            .from("user_profiles")
+            .insert(userProfile)
+            .execute()
+        
+        // Folosește profilul primit ca parametru, doar cu ID-ul actualizat
+        await MainActor.run {
+            self.profile = CompleteUserProfile(
+                id: user.id.uuidString,
                 email: user.email ?? email,
                 fullName: profile.fullName,
                 avatarUrl: profile.avatarUrl,
-                universityId: profile.university?.id,
-                facultyId: profile.faculty?.id,
-                specializationId: profile.specialization?.id,
-                masterId: profile.master?.id,
-                studyYear: profile.studyYear?.intValue,
+                university: profile.university,
+                faculty: profile.faculty,
+                specialization: profile.specialization,
+                master: profile.master,
+                studyYear: profile.studyYear,
                 phone: profile.phone,
                 birthDate: profile.birthDate,
                 bio: profile.bio,
                 preferredLanguage: profile.preferredLanguage,
-                notificationsEnabled: profile.notificationsEnabled,
-                isActive: true,
-                lastLogin: Date(),
-                createdAt: Date(),
-                updatedAt: Date()
+                notificationsEnabled: profile.notificationsEnabled
             )
-            
-            // Inserează profilul în baza de date
-            try await supabase.client
-                .from("user_profiles")
-                .insert(userProfile)
-                .execute()
-            
-            // Folosește profilul primit ca parametru, doar cu ID-ul actualizat
-            await MainActor.run {
-                self.profile = CompleteUserProfile(
-                    id: user.id.uuidString,
-                    email: user.email ?? email,
-                    fullName: profile.fullName,
-                    avatarUrl: profile.avatarUrl,
-                    university: profile.university,
-                    faculty: profile.faculty,
-                    specialization: profile.specialization,
-                    master: profile.master,
-                    studyYear: profile.studyYear,
-                    phone: profile.phone,
-                    birthDate: profile.birthDate,
-                    bio: profile.bio,
-                    preferredLanguage: profile.preferredLanguage,
-                    notificationsEnabled: profile.notificationsEnabled
-                )
-                self.isAuthenticated = true
-                self.saveToDisk(self.profile)
-                self.isLoading = false
-            }
-        } catch {
-            await MainActor.run {
-                self.errorMessage = error.localizedDescription
-            }
-        }
-        
-        await MainActor.run {
+            self.isAuthenticated = true
+            self.saveToDisk(self.profile)
             self.isLoading = false
         }
     }
     
-    func signIn(email: String, password: String) async {
+    func signIn(email: String, password: String) async throws {
         isLoading = true
         errorMessage = nil
         
-        do {
-            let session = try await supabase.signIn(email: email, password: password)
-            let user = session.user
-            // Încarcă profilul existent sau creează unul nou
-            var existingProfile = Self.load()
-            if existingProfile == nil {
-                existingProfile = CompleteUserProfile(
-                    id: user.id.uuidString,
-                    email: user.email ?? email,
-                    fullName: nil,
-                    avatarUrl: nil,
-                    university: nil,
-                    faculty: nil,
-                    specialization: nil,
-                    master: nil,
-                    studyYear: nil,
-                    phone: nil,
-                    birthDate: nil,
-                    bio: nil,
-                    preferredLanguage: "ro",
-                    notificationsEnabled: true
-                )
-            }
-            
-            let finalProfile = existingProfile!
-            await MainActor.run {
-                self.profile = finalProfile
-                self.isAuthenticated = true
-                self.saveToDisk(finalProfile)
-            }
-        } catch {
-            await MainActor.run {
-                self.errorMessage = error.localizedDescription
-            }
+        let session = try await supabase.signIn(email: email, password: password)
+        let user = session.user
+        // Încarcă profilul existent sau creează unul nou
+        var existingProfile = Self.load()
+        if existingProfile == nil {
+            existingProfile = CompleteUserProfile(
+                id: user.id.uuidString,
+                email: user.email ?? email,
+                fullName: nil,
+                avatarUrl: nil,
+                university: nil,
+                faculty: nil,
+                specialization: nil,
+                master: nil,
+                studyYear: nil,
+                phone: nil,
+                birthDate: nil,
+                bio: nil,
+                preferredLanguage: "ro",
+                notificationsEnabled: true
+            )
+        }
+        
+        let finalProfile = existingProfile!
+        await MainActor.run {
+            self.profile = finalProfile
+            self.isAuthenticated = true
+            self.saveToDisk(finalProfile)
         }
         
         await MainActor.run {

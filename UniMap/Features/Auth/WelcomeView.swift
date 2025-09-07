@@ -39,9 +39,10 @@ struct WelcomeView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Clean background
+                // Clean background - ensure it covers everything immediately
                 Color(.systemBackground)
-                    .ignoresSafeArea()
+                    .ignoresSafeArea(.all)
+                    .zIndex(0)
                 
                 VStack(spacing: 0) {
                     // Content
@@ -53,6 +54,7 @@ struct WelcomeView: View {
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .animation(.easeInOut(duration: 0.5), value: currentPage)
+                    .zIndex(1)
                     .gesture(
                         DragGesture()
                             .onEnded { value in
@@ -155,9 +157,9 @@ struct WelcomeCardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                Spacer()
+                Spacer(minLength: 60) // Moved icons down
                 
-                // Icon with enhanced animations
+                // Icon with enhanced animations - moved down
                 ZStack {
                     RoundedRectangle(cornerRadius: 24)
                         .fill(page.color.opacity(0.08))
@@ -172,6 +174,9 @@ struct WelcomeCardView: View {
                         .scaleEffect(isVisible ? 1.0 : 0.5)
                         .opacity(isVisible ? 1.0 : 0.0)
                         .animation(.spring(response: 0.5, dampingFraction: 0.6).delay(0.4), value: isVisible)
+                        // Special animation for bell icon (informații actualizate)
+                        .rotationEffect(.degrees(page.imageName == "bell" && isVisible ? 360 : 0))
+                        .animation(.easeInOut(duration: 1.0).delay(0.6), value: isVisible)
                 }
                 
                 // Text content with perfect centering and staggered animations
@@ -187,6 +192,9 @@ struct WelcomeCardView: View {
                             .opacity(isVisible ? 1.0 : 0.0)
                             .animation(.easeOut(duration: 0.6).delay(0.6), value: isVisible)
                             .accessibilityAddTraits(.isHeader)
+                            // Special animation for "Informații Actualizate" title
+                            .scaleEffect(page.title.contains("Informații") && isVisible ? 1.05 : 1.0)
+                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.8), value: isVisible)
                         
                         Text(page.subtitle)
                             .font(.system(size: min(geometry.size.width * 0.05, 20), weight: .medium, design: .default))
@@ -210,6 +218,9 @@ struct WelcomeCardView: View {
                         .offset(y: isVisible ? 0 : 20)
                         .opacity(isVisible ? 1.0 : 0.0)
                         .animation(.easeOut(duration: 0.6).delay(1.0), value: isVisible)
+                        // Special animation for "Informații Actualizate" description
+                        .offset(x: page.title.contains("Informații") && isVisible ? 5 : 0)
+                        .animation(.easeInOut(duration: 0.8).delay(1.2), value: isVisible)
                 }
                 .padding(.top, 40)
                 .frame(maxWidth: .infinity)

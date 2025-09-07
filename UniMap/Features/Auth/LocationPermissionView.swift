@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreLocation
+import ObjectiveC
 
 struct LocationPermissionView: View {
     @Binding var showRegistration: Bool
@@ -47,7 +48,10 @@ struct LocationPermissionView: View {
             }
         }
         .onAppear {
-            locationManager.delegate = LocationDelegate(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
+            let delegate = LocationDelegate(showRegistration: $showRegistration, showingAlert: $showingAlert, alertMessage: $alertMessage)
+            locationManager.delegate = delegate
+            // Keep a strong reference to prevent deallocation
+            objc_setAssociatedObject(locationManager, "delegate", delegate, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         .alert("Eroare", isPresented: $showingAlert) {
             Button("OK") { }

@@ -221,8 +221,10 @@ struct RegistrationView: View {
                     notificationsEnabled: true
                 )
                 
-                await profileStore.signUp(email: email, password: password, profile: profile)
-                dismiss()
+                try await profileStore.signUp(email: email, password: password, profile: profile)
+                await MainActor.run {
+                    dismiss()
+                }
             } catch {
                 await MainActor.run {
                     errorMessage = error.localizedDescription
