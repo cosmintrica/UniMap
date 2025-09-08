@@ -198,7 +198,8 @@ struct AccountView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .sheet(isPresented: $showEdit) { 
-            OnboardingView() 
+            EditProfileView()
+                .environmentObject(profile)
         }
     }
 }

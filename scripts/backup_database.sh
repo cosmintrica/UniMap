@@ -40,7 +40,7 @@ fi
 echo "💾 Creez backup-ul..."
 supabase db dump --file "$BACKUP_FILE"
 
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 ] && [ -s "$BACKUP_FILE" ]; then
     echo "✅ Backup creat cu succes!"
     echo "📁 Locație: $BACKUP_FILE"
     echo "📊 Mărime: $(du -h "$BACKUP_FILE" | cut -f1)"
@@ -52,5 +52,7 @@ if [ $? -eq 0 ]; then
     echo "🎉 Backup completat cu succes!"
 else
     echo "❌ Eroare la crearea backup-ului!"
+    # Șterge fișierul gol dacă există
+    [ -f "$BACKUP_FILE" ] && rm "$BACKUP_FILE"
     exit 1
 fi

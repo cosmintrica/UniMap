@@ -504,7 +504,15 @@ final class ProfileStore: ObservableObject {
     }
     
     private func loadCompleteProfile() async {
-        guard let userId = profile?.id else { return }
+        guard let userId = profile?.id else { 
+            print("❌ [ProfileStore] No user ID for loading complete profile")
+            return 
+        }
+        
+        print("🔍 [ProfileStore] Loading complete profile for user: \(userId)")
+        
+        // Încarcă datele educaționale înainte de a parse profilul
+        await loadEducationalData()
         
         do {
             // Încarcă profilul cu relațiile
@@ -523,16 +531,52 @@ final class ProfileStore: ObservableObject {
             
             guard let userProfile = response.first else { return }
             
+            // Parse relațiile din response
+            var university: University?
+            var faculty: Faculty?
+            var specialization: Specialization?
+            var master: Master?
+            
+            print("🔍 [ProfileStore] User profile data:")
+            print("  - University ID: \(userProfile.universityId?.uuidString ?? "nil")")
+            print("  - Faculty ID: \(userProfile.facultyId?.uuidString ?? "nil")")
+            print("  - Specialization ID: \(userProfile.specializationId?.uuidString ?? "nil")")
+            print("  - Master ID: \(userProfile.masterId?.uuidString ?? "nil")")
+            print("  - Study Year: \(userProfile.studyYear ?? -1)")
+            
+            print("🔍 [ProfileStore] Available educational data:")
+            print("  - Universities: \(universities.count)")
+            print("  - Faculties: \(faculties.count)")
+            print("  - Specializations: \(specializations.count)")
+            print("  - Masters: \(masters.count)")
+            
+            if let universityId = userProfile.universityId {
+                university = universities.first { $0.id == universityId }
+                print("🔍 [ProfileStore] Found university: \(university?.name ?? "nil")")
+            }
+            if let facultyId = userProfile.facultyId {
+                faculty = faculties.first { $0.id == facultyId }
+                print("🔍 [ProfileStore] Found faculty: \(faculty?.name ?? "nil")")
+            }
+            if let specializationId = userProfile.specializationId {
+                specialization = specializations.first { $0.id == specializationId }
+                print("🔍 [ProfileStore] Found specialization: \(specialization?.name ?? "nil")")
+            }
+            if let masterId = userProfile.masterId {
+                master = masters.first { $0.id == masterId }
+                print("🔍 [ProfileStore] Found master: \(master?.name ?? "nil")")
+            }
+            
             // Construiește profilul complet
             let completeProfile = CompleteUserProfile(
                 id: userProfile.id.uuidString,
                 email: userProfile.email,
                 fullName: userProfile.fullName,
                 avatarUrl: userProfile.avatarUrl,
-                university: nil, // TODO: Parse from response
-                faculty: nil,    // TODO: Parse from response
-                specialization: nil, // TODO: Parse from response
-                master: nil,     // TODO: Parse from response
+                university: university,
+                faculty: faculty,
+                specialization: specialization,
+                master: master,
                 studyYear: userProfile.studyYear.map { StudyYear(intValue: $0) },
                 phone: userProfile.phone,
                 birthDate: userProfile.birthDate,

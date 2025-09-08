@@ -109,10 +109,12 @@ struct AnnouncementsView: View {
     }
     
     private func loadAnnouncements() async {
+        print("🔍 [AnnouncementsView] Starting to load announcements...")
         isLoading = true
         errorMessage = nil
         
         do {
+            print("🔍 [AnnouncementsView] Querying database...")
             let response: [Announcement] = try await supabase.client
                 .from("announcements")
                 .select()
@@ -120,12 +122,18 @@ struct AnnouncementsView: View {
                 .execute()
                 .value
             
+            print("🔍 [AnnouncementsView] Loaded \(response.count) announcements")
+            for announcement in response {
+                print("🔍 [AnnouncementsView] - \(announcement.title) (Active: \(announcement.isActive))")
+            }
+            
             await MainActor.run {
                 self.announcements = response
                 self.isLoading = false
                 self.lastRefreshTime = Date()
             }
         } catch {
+            print("❌ [AnnouncementsView] Error loading announcements: \(error)")
             await MainActor.run {
                 self.errorMessage = error.localizedDescription
                 self.isLoading = false
