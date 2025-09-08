@@ -1,1 +1,8 @@
 SourcePackages/
+
+# Database backups (conțin date sensibile)
+backups/
+*.sql.backup
+
+# Supabase local development
+.supabase/

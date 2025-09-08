@@ -218,7 +218,8 @@ struct RegistrationView: View {
                     birthDate: nil,
                     bio: nil,
                     preferredLanguage: "ro",
-                    notificationsEnabled: true
+                    notificationsEnabled: true,
+                    isAdmin: false
                 )
                 
                 try await profileStore.signUp(email: email, password: password, profile: profile)

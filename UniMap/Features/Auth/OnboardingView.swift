@@ -67,7 +67,8 @@ struct OnboardingView: View {
                             birthDate: nil,
                             bio: nil,
                             preferredLanguage: "ro",
-                            notificationsEnabled: true
+                            notificationsEnabled: true,
+                            isAdmin: false
                         )
                         profileStore.save(profile)
                         dismiss()
