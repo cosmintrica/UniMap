@@ -12,6 +12,7 @@ struct AccountView: View {
     @EnvironmentObject private var profile: ProfileStore
     @Binding var selectedInstitution: Institution
     @State private var showEdit = false
+    @State private var isEditing = false
 
     var body: some View {
         NavigationStack {
@@ -59,7 +60,8 @@ struct AccountView: View {
                                     icon: "building.2",
                                     title: "Universitate",
                                     value: p.university?.name ?? "Nu este selectată",
-                                    color: Color.blue
+                                    color: Color.blue,
+                                    isEditing: isEditing
                                 )
                                 
                                 InfoRow(
@@ -144,8 +146,14 @@ struct AccountView: View {
                         }
                         
                         // Edit Button
-                        Button("Editează Profil") {
-                            showEdit = true
+                        Button(isEditing ? "Salvează" : "Editează Profil") {
+                            if isEditing {
+                                Task {
+                                    await saveProfile()
+                                }
+                            } else {
+                                isEditing = true
+                            }
                         }
                         .font(.headline)
                         .foregroundColor(.white)
@@ -153,7 +161,7 @@ struct AccountView: View {
                         .frame(height: 50)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.accentColor)
+                                .fill(isEditing ? Color.green : Color.accentColor)
                         )
                         .padding(.horizontal, 20)
                         .padding(.top, 20)
@@ -202,6 +210,11 @@ struct AccountView: View {
                 .environmentObject(profile)
         }
     }
+    
+    private func saveProfile() async {
+        // TODO: Implement save functionality
+        isEditing = false
+    }
 }
 
 private struct InfoRow: View {
@@ -209,6 +222,7 @@ private struct InfoRow: View {
     let title: String
     let value: String
     let color: Color
+    var isEditing: Bool = false
     
     var body: some View {
         HStack(spacing: 12) {
@@ -221,9 +235,15 @@ private struct InfoRow: View {
                     .font(.subheadline.weight(.medium))
                     .foregroundColor(.primary)
                 
-                Text(value)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                if isEditing {
+                    TextField("Introduceți \(title.lowercased())", text: .constant(value))
+                        .textFieldStyle(.roundedBorder)
+                        .font(.subheadline)
+                } else {
+                    Text(value)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
             }
             
             Spacer()

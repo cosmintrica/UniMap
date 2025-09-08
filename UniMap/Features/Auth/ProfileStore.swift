@@ -122,7 +122,9 @@ final class ProfileStore: ObservableObject {
         self.isAuthenticated = self.profile != nil
         
         // Verifică autentificarea în background fără să blocheze UI-ul
+        // Delay mai mare pentru a permite UI-ului să se încarce complet
         Task.detached {
+            try? await Task.sleep(nanoseconds: 200_000_000) // 0.2 secunde
             await self.checkAuthenticationInBackground()
         }
     }
@@ -261,6 +263,9 @@ final class ProfileStore: ObservableObject {
             self.saveToDisk(finalProfile)
         }
         
+        // Încarcă profilul complet din baza de date
+        await loadCompleteProfile()
+        
         await MainActor.run {
             self.isLoading = false
         }
@@ -337,6 +342,9 @@ final class ProfileStore: ObservableObject {
                     )
                 }
             }
+            
+            // Încarcă profilul complet din baza de date
+            await loadCompleteProfile()
         } else {
             await MainActor.run {
                 self.isAuthenticated = false

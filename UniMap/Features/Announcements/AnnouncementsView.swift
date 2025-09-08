@@ -110,6 +110,10 @@ struct AnnouncementsView: View {
     
     private func loadAnnouncements() async {
         print("🔍 [AnnouncementsView] Starting to load announcements...")
+        print("🔍 [AnnouncementsView] Supabase client: \(supabase.client)")
+        print("🔍 [AnnouncementsView] Profile authenticated: \(profile.isAuthenticated)")
+        print("🔍 [AnnouncementsView] Profile: \(profile.profile?.email ?? "nil")")
+        
         isLoading = true
         errorMessage = nil
         
@@ -124,16 +128,18 @@ struct AnnouncementsView: View {
             
             print("🔍 [AnnouncementsView] Loaded \(response.count) announcements")
             for announcement in response {
-                print("🔍 [AnnouncementsView] - \(announcement.title) (Active: \(announcement.isActive))")
+                print("🔍 [AnnouncementsView] - \(announcement.title) (Active: \(announcement.isActive), Priority: \(announcement.priority), TargetYear: \(announcement.targetStudyYear ?? -1))")
             }
             
             await MainActor.run {
                 self.announcements = response
                 self.isLoading = false
                 self.lastRefreshTime = Date()
+                print("🔍 [AnnouncementsView] Updated UI with \(response.count) announcements")
             }
         } catch {
             print("❌ [AnnouncementsView] Error loading announcements: \(error)")
+            print("❌ [AnnouncementsView] Error details: \(error.localizedDescription)")
             await MainActor.run {
                 self.errorMessage = error.localizedDescription
                 self.isLoading = false
