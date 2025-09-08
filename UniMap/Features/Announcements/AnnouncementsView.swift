@@ -11,7 +11,9 @@ struct AnnouncementsView: View {
     @State private var expandedID: UUID? = nil
     @State private var announcements: [Announcement] = []
     @State private var isLoading = false
+    @State private var isRefreshing = false
     @State private var errorMessage: String?
+    @State private var lastRefreshTime = Date()
     
     private let supabase = SupabaseManager.shared
 
@@ -52,6 +54,18 @@ struct AnnouncementsView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 12) {
+                        // Pull to refresh indicator
+                        if isRefreshing {
+                            HStack {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                Text("Se actualizează anunțurile...")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.vertical, 8)
+                        }
+                        
                         ForEach(filteredAnnouncements) { item in
                             AnnouncementCard(
                                 item: item,
@@ -67,10 +81,26 @@ struct AnnouncementsView: View {
                     .padding(.vertical, 16)
                     .padding(.horizontal, 12)
                 }
+                .refreshable {
+                    await refreshAnnouncements()
+                }
                 .buttonStyle(.plain)
             }
         }
         .navigationTitle("Anunțuri")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    Task {
+                        await refreshAnnouncements()
+                    }
+                }) {
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(.accentColor)
+                }
+                .disabled(isRefreshing)
+            }
+        }
         .task {
             await loadAnnouncements()
         }
@@ -91,11 +121,37 @@ struct AnnouncementsView: View {
             await MainActor.run {
                 self.announcements = response
                 self.isLoading = false
+                self.lastRefreshTime = Date()
             }
         } catch {
             await MainActor.run {
                 self.errorMessage = error.localizedDescription
                 self.isLoading = false
+            }
+        }
+    }
+    
+    private func refreshAnnouncements() async {
+        isRefreshing = true
+        errorMessage = nil
+        
+        do {
+            let response: [Announcement] = try await supabase.client
+                .from("announcements")
+                .select()
+                .order("created_at", ascending: false)
+                .execute()
+                .value
+            
+            await MainActor.run {
+                self.announcements = response
+                self.isRefreshing = false
+                self.lastRefreshTime = Date()
+            }
+        } catch {
+            await MainActor.run {
+                self.errorMessage = error.localizedDescription
+                self.isRefreshing = false
             }
         }
     }

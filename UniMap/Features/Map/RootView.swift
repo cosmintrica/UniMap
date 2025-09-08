@@ -14,21 +14,10 @@ struct RootView: View {
     @State private var selectedInstitution: Institution = .ucv
     @State private var showOnboarding = true
     @State private var mapResetTick = 0
-    @State private var isAppReady = false
 
     var body: some View {
         Group {
-            if !isAppReady {
-                // Splash screen instant - nu depinde de nimic
-                Color(.systemBackground)
-                    .ignoresSafeArea(.all)
-                    .onAppear {
-                        // Marchează aplicația ca gata instant
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            isAppReady = true
-                        }
-                    }
-            } else if showOnboarding {
+            if showOnboarding {
                 // Afișează doar background-ul când onboarding-ul este activ
                 Color(.systemBackground)
                     .ignoresSafeArea(.all)
@@ -77,7 +66,9 @@ struct RootView: View {
                 }
             }
         }
-        .onChange(of: profile.profile) { _, newValue in showOnboarding = (newValue == nil) }
+        .onChange(of: profile.profile) { _, newValue in 
+            showOnboarding = (newValue == nil) 
+        }
         .fullScreenCover(isPresented: $showOnboarding) {
             WelcomeView().interactiveDismissDisabled(true)
         }

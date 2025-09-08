@@ -81,18 +81,18 @@ struct WelcomeView: View {
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
-                    .animation(.easeInOut(duration: 0.5), value: currentPage)
+                    .animation(.easeInOut(duration: 0.3), value: currentPage)
                     .zIndex(1)
                     .gesture(
                         DragGesture()
                             .onEnded { value in
                                 let threshold: CGFloat = 50
                                 if value.translation.width > threshold && currentPage > 0 {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
                                         currentPage -= 1
                                     }
                                 } else if value.translation.width < -threshold && currentPage < pages.count - 1 {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
                                         currentPage += 1
                                     }
                                 }
@@ -107,7 +107,7 @@ struct WelcomeView: View {
                                 RoundedRectangle(cornerRadius: 2)
                                     .fill(index == currentPage ? Color.accentColor : Color.secondary.opacity(0.3))
                                     .frame(width: index == currentPage ? 24 : 8, height: 4)
-                                    .animation(.easeInOut(duration: 0.3), value: currentPage)
+                                    .animation(.easeInOut(duration: 0.2), value: currentPage)
                             }
                         }
                         
@@ -115,7 +115,7 @@ struct WelcomeView: View {
                         HStack(spacing: 12) {
                             if currentPage > 0 {
                                 Button("Înapoi") {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
                                         currentPage -= 1
                                     }
                                 }
@@ -123,18 +123,18 @@ struct WelcomeView: View {
                                 .foregroundColor(.secondary)
                                 .frame(height: 44)
                                 .scaleEffect(1.0)
-                                .animation(.spring(response: 0.3, dampingFraction: 0.6), value: currentPage)
+                                .animation(.spring(response: 0.2, dampingFraction: 0.6), value: currentPage)
                             }
                             
                             Spacer()
                             
                             Button(currentPage == pages.count - 1 ? "Începe" : "Continuă") {
                                 if currentPage == pages.count - 1 {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
                                         showLocationPermission = true
                                     }
                                 } else {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
                                         currentPage += 1
                                     }
                                 }
@@ -153,7 +153,7 @@ struct WelcomeView: View {
                             )
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .scaleEffect(1.0)
-                            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: currentPage)
+                            .animation(.spring(response: 0.2, dampingFraction: 0.6), value: currentPage)
                         }
                         .padding(.horizontal, 32)
                     }
@@ -204,17 +204,17 @@ struct WelcomeCardView: View {
                         .frame(width: 100, height: 100)
                         .scaleEffect(isVisible ? 1.0 : 0.8)
                         .opacity(isVisible ? 1.0 : 0.0)
-                        .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.2), value: isVisible)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.7).delay(0.1), value: isVisible)
                     
                     Image(systemName: page.imageName)
                         .font(.system(size: 40, weight: .medium))
                         .foregroundColor(page.color)
                         .scaleEffect(isVisible ? 1.0 : 0.5)
                         .opacity(isVisible ? 1.0 : 0.0)
-                        .animation(.spring(response: 0.5, dampingFraction: 0.6).delay(0.4), value: isVisible)
+                        .animation(.spring(response: 0.3, dampingFraction: 0.6).delay(0.2), value: isVisible)
                         // Special animation for bell icon (informații actualizate)
                         .rotationEffect(.degrees(page.showNotificationButton && isVisible ? 360 : 0))
-                        .animation(.easeInOut(duration: 1.0).delay(0.6), value: isVisible)
+                        .animation(.easeInOut(duration: 0.6).delay(0.3), value: isVisible)
                 }
                 
                 // Text content with perfect centering and staggered animations
@@ -228,11 +228,11 @@ struct WelcomeCardView: View {
                             .minimumScaleFactor(0.8)
                             .offset(y: isVisible ? 0 : 20)
                             .opacity(isVisible ? 1.0 : 0.0)
-                            .animation(.easeOut(duration: 0.6).delay(0.6), value: isVisible)
+                            .animation(.easeOut(duration: 0.4).delay(0.3), value: isVisible)
                             .accessibilityAddTraits(.isHeader)
                             // Special animation for "Informații Actualizate" title
                             .scaleEffect(page.showNotificationButton && isVisible ? 1.05 : 1.0)
-                            .animation(.spring(response: 0.8, dampingFraction: 0.6).delay(0.8), value: isVisible)
+                            .animation(.spring(response: 0.5, dampingFraction: 0.6).delay(0.4), value: isVisible)
                         
                         Text(page.subtitle)
                             .font(.system(size: min(geometry.size.width * 0.05, 20), weight: .medium, design: .default))
@@ -242,10 +242,10 @@ struct WelcomeCardView: View {
                             .minimumScaleFactor(0.8)
                             .offset(y: isVisible ? 0 : 20)
                             .opacity(isVisible ? 1.0 : 0.0)
-                            .animation(.easeOut(duration: 0.6).delay(0.8), value: isVisible)
+                            .animation(.easeOut(duration: 0.4).delay(0.4), value: isVisible)
                             // Special animation for "Informații Actualizate" subtitle
                             .scaleEffect(page.showNotificationButton && isVisible ? 1.02 : 1.0)
-                            .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.9), value: isVisible)
+                            .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(0.5), value: isVisible)
                     }
                     
                     Text(page.description)
@@ -258,13 +258,13 @@ struct WelcomeCardView: View {
                         .minimumScaleFactor(0.7)
                         .offset(y: isVisible ? 0 : 20)
                         .opacity(isVisible ? 1.0 : 0.0)
-                        .animation(.easeOut(duration: 0.6).delay(1.0), value: isVisible)
+                        .animation(.easeOut(duration: 0.4).delay(0.5), value: isVisible)
                         // Special animation for "Informații Actualizate" description
                         .offset(x: page.showNotificationButton && isVisible ? 5 : 0)
-                        .animation(.easeInOut(duration: 0.8).delay(1.2), value: isVisible)
+                        .animation(.easeInOut(duration: 0.5).delay(0.6), value: isVisible)
                         // Additional pulsing effect for notifications
                         .scaleEffect(page.showNotificationButton && isVisible ? 1.01 : 1.0)
-                        .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true).delay(1.5), value: isVisible)
+                        .animation(.easeInOut(duration: 1.0).repeatForever(autoreverses: true).delay(0.8), value: isVisible)
                     
                     // Notification permission button (only for "Informații Actualizate" slide)
                     if page.showNotificationButton {
@@ -290,7 +290,7 @@ struct WelcomeCardView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .scaleEffect(isVisible ? 1.0 : 0.8)
                             .opacity(isVisible ? 1.0 : 0.0)
-                            .animation(.spring(response: 0.6, dampingFraction: 0.7).delay(1.8), value: isVisible)
+                            .animation(.spring(response: 0.4, dampingFraction: 0.7).delay(0.7), value: isVisible)
                         }
                         .accessibilityLabel("Activează notificările pentru a primi alerte despre evenimente și știri")
                         .padding(.top, 20)
@@ -325,7 +325,7 @@ struct WelcomeCardView: View {
     
     private func startAnimations() {
         isVisible = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation {
                 isVisible = true
             }
