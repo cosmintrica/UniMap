@@ -61,12 +61,19 @@ fi
 
 # Restore backup-ul
 echo "💾 Restore backup-ul..."
-supabase db reset --file "$BACKUP_FILE"
-
-if [ $? -eq 0 ]; then
-    echo "✅ Restore completat cu succes!"
-    echo "🎉 Baza de date a fost restaurată din: $(basename "$BACKUP_FILE")"
-else
-    echo "❌ Eroare la restore!"
-    exit 1
-fi
+echo "⚠️  Pentru restore, folosește comanda manuală:"
+echo ""
+echo "🔧 Opțiuni de restore:"
+echo "1. Reset la ultima migrație:"
+echo "   supabase db reset --linked"
+echo ""
+echo "2. Import manual prin Supabase Dashboard:"
+echo "   - Mergi la: https://supabase.com/dashboard/project/vykwycqgxlvfagdlyxvu/sql"
+echo "   - Copiază conținutul din: $BACKUP_FILE"
+echo "   - Rulează SQL-ul în editor"
+echo ""
+echo "3. Import prin psql (dacă ai acces direct):"
+echo "   psql -h [HOST] -U postgres -d postgres < $BACKUP_FILE"
+echo ""
+echo "📁 Fișierul de backup: $BACKUP_FILE"
+echo "✅ Backup-ul este valid și gata de folosit!"
