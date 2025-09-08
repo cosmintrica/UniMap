@@ -22,6 +22,9 @@ struct DatabaseUserProfile: Codable, Identifiable {
     let preferredLanguage: String
     let notificationsEnabled: Bool
     
+    // Admin status
+    let isAdmin: Bool
+    
     // Metadate
     let isActive: Bool
     let lastLogin: Date?
@@ -43,6 +46,7 @@ struct DatabaseUserProfile: Codable, Identifiable {
         case bio
         case preferredLanguage = "preferred_language"
         case notificationsEnabled = "notifications_enabled"
+        case isAdmin = "is_admin"
         case isActive = "is_active"
         case lastLogin = "last_login"
         case createdAt = "created_at"

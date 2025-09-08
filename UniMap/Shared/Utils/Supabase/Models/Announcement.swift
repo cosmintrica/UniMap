@@ -7,6 +7,7 @@ struct Announcement: Codable, Identifiable {
     let imageURL: String?
     let priority: AnnouncementPriority
     let isActive: Bool
+    let targetStudyYear: Int?
     let createdAt: Date
     let updatedAt: Date
     let expiresAt: Date?
@@ -18,6 +19,7 @@ struct Announcement: Codable, Identifiable {
         case imageURL = "image_url"
         case priority
         case isActive = "is_active"
+        case targetStudyYear = "target_study_year"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case expiresAt = "expires_at"

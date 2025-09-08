@@ -49,7 +49,9 @@ struct AnnouncementsView: View {
                 let filteredAnnouncements = announcements.filter { announcement in
                     // Filtrează anunțurile active și care se aplică pentru anul studentului
                     announcement.isActive && 
-                    (announcement.priority == .urgent || yearInt >= 1) // Toate anunțurile urgente + toate pentru orice an
+                    (announcement.priority == .urgent || 
+                     announcement.targetStudyYear == nil || 
+                     announcement.targetStudyYear == yearInt)
                 }
                 
                 ScrollView {
@@ -149,8 +151,14 @@ struct AnnouncementsView: View {
                 self.lastRefreshTime = Date()
             }
         } catch {
+            // Ignoră erorile de "cancelled" care apar când utilizatorul face pull-to-refresh
+            if !error.localizedDescription.contains("cancelled") && !error.localizedDescription.contains("canceled") {
+                await MainActor.run {
+                    self.errorMessage = error.localizedDescription
+                }
+            }
+            
             await MainActor.run {
-                self.errorMessage = error.localizedDescription
                 self.isRefreshing = false
             }
         }

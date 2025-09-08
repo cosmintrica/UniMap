@@ -59,21 +59,21 @@ struct AccountView: View {
                                     icon: "building.2",
                                     title: "Universitate",
                                     value: p.university?.name ?? "Nu este selectată",
-                                    color: .blue
+                                    color: Color.blue
                                 )
                                 
                                 InfoRow(
                                     icon: "graduationcap",
                                     title: "Facultate",
                                     value: p.faculty?.name ?? "Nu este selectată",
-                                    color: .green
+                                    color: Color.green
                                 )
                                 
                                 InfoRow(
                                     icon: "book",
                                     title: "Specializare",
                                     value: p.specialization?.name ?? "Nu este selectată",
-                                    color: .orange
+                                    color: Color.orange
                                 )
                                 
                                 if let master = p.master {
@@ -81,7 +81,7 @@ struct AccountView: View {
                                         icon: "star",
                                         title: "Master",
                                         value: master.name,
-                                        color: .purple
+                                        color: Color.purple
                                     )
                                 }
                                 
@@ -89,7 +89,7 @@ struct AccountView: View {
                                     icon: "calendar",
                                     title: "Anul de studiu",
                                     value: p.studyYear?.displayName ?? "Nu este selectat",
-                                    color: .red
+                                    color: Color.red
                                 )
                             }
                         }
@@ -113,7 +113,7 @@ struct AccountView: View {
                                             icon: "phone",
                                             title: "Telefon",
                                             value: phone,
-                                            color: .blue
+                                            color: Color.blue
                                         )
                                     }
                                     
@@ -121,7 +121,7 @@ struct AccountView: View {
                                         VStack(alignment: .leading, spacing: 8) {
                                             HStack {
                                                 Image(systemName: "person.text.rectangle")
-                                                    .foregroundColor(.green)
+                                                    .foregroundColor(Color.green)
                                                     .frame(width: 20)
                                                 Text("Despre mine")
                                                     .font(.subheadline.weight(.medium))

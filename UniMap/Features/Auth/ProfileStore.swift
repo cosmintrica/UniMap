@@ -46,6 +46,9 @@ struct CompleteUserProfile: Codable, Identifiable, Equatable {
     let preferredLanguage: String
     let notificationsEnabled: Bool
     
+    // Admin status
+    let isAdmin: Bool
+    
     var displayName: String {
         if let fullName = fullName, !fullName.isEmpty {
             return fullName
@@ -114,9 +117,13 @@ final class ProfileStore: ObservableObject {
         self.supabase = SupabaseManager.shared
         self.isAuthenticated = false
         
-        // Încarcă profilul în background după un delay scurt
+        // Încarcă profilul din cache instant
+        self.profile = Self.load()
+        self.isAuthenticated = self.profile != nil
+        
+        // Verifică autentificarea în background fără să blocheze UI-ul
         Task.detached {
-            await self.loadProfileInBackground()
+            await self.checkAuthenticationInBackground()
         }
     }
 
@@ -137,12 +144,8 @@ final class ProfileStore: ObservableObject {
     
     private let supabase: SupabaseManager
 
-    // ⚠️ PUNE AICI ADRESA TA DE EMAIL (lowercase)
-    private let adminEmails: Set<String> = ["cosmin.trica@outlook.com"]
-
     var isCurrentUserAdmin: Bool {
-        guard let mail = profile?.email.lowercased(), !mail.isEmpty else { return false }
-        return adminEmails.contains(mail)
+        return profile?.isAdmin ?? false
     }
 
     // Persis­tență simplă (fără extensii externe)
@@ -185,6 +188,7 @@ final class ProfileStore: ObservableObject {
             bio: profile.bio,
             preferredLanguage: profile.preferredLanguage,
             notificationsEnabled: profile.notificationsEnabled,
+            isAdmin: false,
             isActive: true,
             lastLogin: Date(),
             createdAt: Date(),
@@ -213,7 +217,8 @@ final class ProfileStore: ObservableObject {
                 birthDate: profile.birthDate,
                 bio: profile.bio,
                 preferredLanguage: profile.preferredLanguage,
-                notificationsEnabled: profile.notificationsEnabled
+                notificationsEnabled: profile.notificationsEnabled,
+                isAdmin: false
             )
             self.isAuthenticated = true
             self.saveToDisk(self.profile)
@@ -244,7 +249,8 @@ final class ProfileStore: ObservableObject {
                 birthDate: nil,
                 bio: nil,
                 preferredLanguage: "ro",
-                notificationsEnabled: true
+                notificationsEnabled: true,
+                isAdmin: false
             )
         }
         
@@ -293,7 +299,8 @@ final class ProfileStore: ObservableObject {
                     birthDate: nil,
                     bio: nil,
                     preferredLanguage: "ro",
-                    notificationsEnabled: true
+                    notificationsEnabled: true,
+                    isAdmin: false
                 )
             }
         } else {
@@ -302,17 +309,9 @@ final class ProfileStore: ObservableObject {
     }
 
     // MARK: - Background Loading
-    private func loadProfileInBackground() async {
+    private func checkAuthenticationInBackground() async {
         // Delay scurt pentru a permite UI-ului să se încarce instant
-        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 secunde
-        
-        // Încarcă profilul din cache
-        let cachedProfile = Self.load()
-        
-        await MainActor.run {
-            self.profile = cachedProfile
-            self.isAuthenticated = cachedProfile != nil
-        }
+        try? await Task.sleep(nanoseconds: 50_000_000) // 0.05 secunde
         
         // Verifică statusul de autentificare cu Supabase
         if let user = supabase.getCurrentUser() {
@@ -333,9 +332,14 @@ final class ProfileStore: ObservableObject {
                         birthDate: nil,
                         bio: nil,
                         preferredLanguage: "ro",
-                        notificationsEnabled: true
+                        notificationsEnabled: true,
+                        isAdmin: false
                     )
                 }
+            }
+        } else {
+            await MainActor.run {
+                self.isAuthenticated = false
             }
         }
     }
@@ -349,6 +353,14 @@ final class ProfileStore: ObservableObject {
         Task.detached {
             await self.loadEducationalData()
         }
+    }
+    
+    func loadEducationalDataIfNeededSync() async {
+        // Încarcă doar dacă nu sunt deja încărcate
+        guard universities.isEmpty else { return }
+        
+        // Încarcă direct fără Task.detached pentru performanță mai bună
+        await self.loadEducationalData()
     }
     
     func loadEducationalData() async {
@@ -526,7 +538,8 @@ final class ProfileStore: ObservableObject {
                 birthDate: userProfile.birthDate,
                 bio: userProfile.bio,
                 preferredLanguage: userProfile.preferredLanguage,
-                notificationsEnabled: userProfile.notificationsEnabled
+                notificationsEnabled: userProfile.notificationsEnabled,
+                isAdmin: userProfile.isAdmin
             )
             
             await MainActor.run {

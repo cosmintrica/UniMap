@@ -57,7 +57,7 @@ struct RootView: View {
                     // Încarcă datele educaționale doar dacă utilizatorul este autentificat
                     if profile.isAuthenticated {
                         Task {
-                            await profile.loadEducationalDataIfNeeded()
+                            await profile.loadEducationalDataIfNeededSync()
                         }
                     }
                 }
@@ -76,8 +76,8 @@ struct RootView: View {
             // Începe încărcarea datelor în background când aplicația se deschide
             // Doar dacă utilizatorul este autentificat
             if profile.isAuthenticated {
-                Task.detached {
-                    await profile.loadEducationalDataIfNeeded()
+                Task {
+                    await profile.loadEducationalDataIfNeededSync()
                 }
             }
         }
